@@ -54,8 +54,14 @@
             <input type="text" name="axMng" value="" id="axMng"></p>
         
         
+         <p><label>Price</label>
+            <!--<input type="text" name="priceOut" value="" id="priceOut"></p>-->
+        	<span id='priceOut'></span></p>
+        
       </form>
           <button onclick="myFunction()">Calculate Price</button>
+      
+      
       
     </div>
   </div>
@@ -81,7 +87,11 @@
             var totalPrice = (dIn*45+dOut*45+aIn*205+aOut*230+intFace*3000+intTag*20+fieldNet*2500+itNet*2000+(1+redundant)*5000+clientStations*2500+axProj*1000+axMng*1000);
             var monthlyPayment = ((0.01 * totalPrice) / (1 - Math.pow((1 + 0.01),(-84))));
             
-            alert("Total Cost: " + totalPrice + " \nMonthly Fee: "+ monthlyPayment);
+            document.getElementById('priceOut').innerHTML = totalPrice;
+            
+            //document.getElementById('priceOut').value = totalPrice;
+            
+            //alert("Total Cost: " + totalPrice + " \nMonthly Fee: "+ monthlyPayment);
             
             
             //console.log(fieldNet);
