@@ -20,14 +20,10 @@
       <h2>AutomationX Price Calculator</h2>
       <h3>I/O Ports</h3>
       <form >
-          <p><label>Digital Inputs</label>
-            <input type="text" name="dIn" value="" id="dIn"></p>
-          <p><label>Digital Outputs</label>
-            <input type="text" name="dOut" value="" id="dOut"></p>
-          <p><label>Analog Inputs</label>
-            <input type="text" name="aIn" value="" id="aIn"></p>
-          <p><label>Analog Outputs</label>
-            <input type="text" name="aOut" value="" id="aOut"></p>
+          <p><label>Digital Inputs & Outputs</label>
+            <input type="text" name="dIo" value="" id="dIo"></p>
+          <p><label>Analog Inputs & Outputs</label>
+            <input type="text" name="aIo" value="" id="aIo"></p>
        
         <h3>aX Communications</h3>
         
@@ -45,13 +41,6 @@
         
         <p><label>Number of Client Stations</label>
             <input type="text" name="clientStations" value="" id="clientStations"></p>
-        
-        <h3>Design & Engineering</h3>
-        
-        <p><label>aX Project</label>
-            <input type="text" name="axProj" value="" id="axProj"></p>
-        <p><label>aX Management</label>
-            <input type="text" name="axMng" value="" id="axMng"></p>
         
         
          <p><label>Price</label>
@@ -71,21 +60,19 @@
     <script type="text/javascript" src="js/Jquery.js"></script>
     <script type="text/javascript">
         var myFunction = function(){
-            var dIn = Number($("#dIn").val());
-            var dOut = Number($("#dOut").val());
-            var aIn = Number($("#aIn").val());
-            var aOut = Number($("#aOut").val());
+            var dIo = Number($("#dIo").val());
+            var aIo = Number($("#aIo").val());
             var intFace = Number($("#intFace").val());
             var intTag = Number($("#intTag").val());
             var clientStations = Number($("#clientStations").val());
-            var axProj = Number($("#axProj").val());
-            var axMng = Number($("#axMng").val());
+            var axProj = 1;
+            var axMng = 1;
             
             var fieldNet = $("#fieldNet").is(':checked');
             var itNet = $("#itNet").is(':checked');
             var redundant = $("#redundant").is(':checked');
             
-            var totalPrice = (dIn*45+dOut*45+aIn*205+aOut*230+intFace*3000+intTag*20+fieldNet*2500+itNet*2000+(1+redundant)*5000+clientStations*2500+axProj*1000+axMng*1000);
+            var totalPrice = (dIo*45+aIo*210+intFace*3000+intTag*20+fieldNet*2500+itNet*2000+(1+redundant)*5000+clientStations*2500+axProj*1000+axMng*1000);
             var monthlyPayment = ((0.01 * totalPrice) / (1 - Math.pow((1 + 0.01),(-84))));
             
             document.getElementById('priceOut').innerHTML = totalPrice;
